@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação: Exercícios do Capítulo 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .presentation-body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #presentation-container {
+            flex-grow: 1;
+            position: relative;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .slide-content {
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #9a3412, #c2410c, #ea580c, #f97316);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        code.python-code {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: block;
+            font-family: monospace;
+            font-size: 1.125rem;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white">
+
+    <div class="presentation-body">
+        <!-- Container dos Slides -->
+        <div id="presentation-container">
+            <!-- Slide 1: Título -->
+            <div id="slide-1" class="slide">
+                <div class="slide-content text-center">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Exercícios do Capítulo 3</h1>
+                    <p class="text-xl md:text-2xl text-orange-200">Hora de Praticar!</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Exercício 3.7 -->
+            <div id="slide-2" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.7: Soma Simples</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Faça um programa que peça dois números inteiros e imprima a soma desses dois números na tela.</p>
+                    <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            numero1 = int(input("Digite o primeiro número: "))
+                            numero2 = int(input("Digite o segundo número: "))
+                            soma = numero1 + numero2
+                            print(f"A soma é: {soma}")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 3: Exercício 3.8 -->
+            <div id="slide-3" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.8: Metros para Milímetros</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Escreva um programa que leia um valor em metros e o exiba convertido em milímetros.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            metros = float(input("Digite o valor em metros: "))
+                            milimetros = metros * 1000
+                            print(f"{metros}m é igual a {milimetros:.0f}mm")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 4: Exercício 3.9 -->
+            <div id="slide-4" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.9: Conversor de Tempo</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Leia dias, horas, minutos e segundos do usuário. Calcule o total em segundos.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            dias = int(input("Dias: "))
+                            horas = int(input("Horas: "))
+                            minutos = int(input("Minutos: "))
+                            segundos = int(input("Segundos: "))
+
+                            total_em_segundos = (dias * 24 * 3600) + (horas * 3600) + (minutos * 60) + segundos
+                            print(f"O total em segundos é: {total_em_segundos}")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 5: Exercício 3.10 -->
+            <div id="slide-5" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.10: Aumento de Salário</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Solicite o valor do salário e a porcentagem do aumento. Exiba o valor do aumento e do novo salário.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            salario = float(input("Salário atual: R$ "))
+                            percentual_aumento = float(input("Aumento (%): "))
+
+                            aumento = salario * (percentual_aumento / 100)
+                            novo_salario = salario + aumento
+
+                            print(f"Aumento: R$ {aumento:.2f}")
+                            print(f"Novo Salário: R$ {novo_salario:.2f}")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 6: Exercício 3.11 -->
+            <div id="slide-6" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.11: Cálculo de Desconto</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Solicite o preço de uma mercadoria e o percentual de desconto. Exiba o valor do desconto e o preço a pagar.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            preco = float(input("Preço da mercadoria: R$ "))
+                            percentual_desconto = float(input("Desconto (%): "))
+
+                            desconto = preco * (percentual_desconto / 100)
+                            preco_final = preco - desconto
+
+                            print(f"Desconto: R$ {desconto:.2f}")
+                            print(f"Preço a pagar: R$ {preco_final:.2f}")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 7: Exercício 3.12 -->
+            <div id="slide-7" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.12: Tempo de Viagem</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Calcule o tempo de uma viagem de carro. Pergunte a distância (km) e a velocidade média (km/h).</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            distancia = float(input("Distância a percorrer (km): "))
+                            velocidade_media = float(input("Velocidade média (km/h): "))
+
+                            tempo_horas = distancia / velocidade_media
+                            
+                            print(f"O tempo estimado de viagem é de {tempo_horas:.2f} horas.")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 8: Exercício 3.13 -->
+            <div id="slide-8" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.13: Celsius para Fahrenheit</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Converta uma temperatura de °C em °F. Fórmula: F = (9 * C / 5) + 32</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            celsius = float(input("Temperatura em Celsius (°C): "))
+                            
+                            fahrenheit = (9 * celsius / 5) + 32
+
+                            print(f"{celsius}°C é igual a {fahrenheit:.2f}°F")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 9: Exercício 3.14 -->
+            <div id="slide-9" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.14: Aluguel de Carro</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Calcule o preço do aluguel. Custo: R$ 60/dia + R$ 0,15/km. Peça os km percorridos e a quantidade de dias.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            dias_alugado = int(input("Quantidade de dias: "))
+                            km_rodados = float(input("Km percorridos: "))
+
+                            preco_total = (dias_alugado * 60) + (km_rodados * 0.15)
+
+                            print(f"O preço total a pagar é: R$ {preco_total:.2f}")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 10: Exercício 3.15 -->
+            <div id="slide-10" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Exercício 3.15: Tempo de Vida (Fumante)</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Calcule quantos dias de vida um fumante perderá. Ele perde 10 min por cigarro. Peça a qtd de cigarros/dia e quantos anos ele já fumou.</p>
+                     <details class="bg-black/20 p-4 rounded-lg text-left cursor-pointer">
+                        <summary class="font-bold">Ver Solução</summary>
+                        <code class="python-code mt-4">
+                            cigarros_por_dia = int(input("Cigarros por dia: "))
+                            anos_fumando = int(input("Anos fumando: "))
+
+                            total_cigarros = anos_fumando * 365 * cigarros_por_dia
+                            minutos_perdidos = total_cigarros * 10
+                            dias_perdidos = minutos_perdidos / (24 * 60)
+
+                            print(f"Você perdeu aproximadamente {dias_perdidos:.2f} dias de vida.")
+                        </code>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Slide 11: Fim -->
+            <div id="slide-11" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6">Parabéns!</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-orange-200">Você concluiu os exercícios. A prática leva à perfeição!</p>
+                    <p class="text-3xl md:text-4xl font-bold text-white">Continue codificando!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de Navegação -->
+        <div class="flex-shrink-0 p-4">
+            <div class="flex justify-between items-center w-full max-w-5xl mx-auto">
+                <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 11</span>
+                <div class="flex items-center gap-2 text-sm text-orange-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+                    <span>Deslize para navegar</span>
+                </div>
+                <div class="flex gap-2">
+                    <button id="prev-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Anterior</button>
+                    <button id="next-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors">Próximo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const slideCounter = document.getElementById('slide-counter');
+        const presentationContainer = document.getElementById('presentation-container');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('hidden', i !== index);
+            });
+            slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        presentationContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        presentationContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                prevSlide();
+            }
+        }
+
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>

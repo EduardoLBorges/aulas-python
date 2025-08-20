@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação: Variáveis e Entrada de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .presentation-body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #presentation-container {
+            flex-grow: 1;
+            position: relative;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .slide-content {
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #4c1d95, #6d28d9, #5b21b6, #7c3aed);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        code.python-code {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: block;
+            font-family: monospace;
+            font-size: 1.125rem;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white">
+
+    <div class="presentation-body">
+        <!-- Container dos Slides -->
+        <div id="presentation-container">
+            <!-- Slide 1: Título -->
+            <div id="slide-1" class="slide">
+                <div class="slide-content text-center">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Variáveis e Entrada de Dados</h1>
+                    <p class="text-xl md:text-2xl text-violet-200">Capítulo 3: Aprofundando os Conceitos</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Nomes de Variáveis -->
+            <div id="slide-2" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Regras para Nomes de Variáveis</h2>
+                    <div class="grid md:grid-cols-2 gap-6 text-lg">
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-green-300 mb-2">Válidos ✔️</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><code>a1</code></li>
+                                <li><code>velocidade</code></li>
+                                <li><code>salario_medio</code></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-red-300 mb-2">Inválidos ❌</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><code>1a</code> (não pode começar com número)</li>
+                                <li><code>salario medio</code> (não pode ter espaço)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Tipos de Variáveis -->
+            <div id="slide-3" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Tipos de Variáveis</h2>
+                    <ul class="space-y-4 text-lg md:text-xl">
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Inteiro (int):</strong> Números sem parte decimal. Ex: <code>10</code>, <code>-5</code>, <code>1500</code>.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Ponto Flutuante (float):</strong> Números com parte decimal. Ex: <code>1.5</code>, <code>-0.75</code>. <strong>Use ponto, não vírgula!</strong></li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Lógico (bool):</strong> Armazena apenas <code>True</code> (verdadeiro) ou <code>False</code> (falso).</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>String (str):</strong> Sequências de texto. Ex: <code>"Olá, mundo!"</code>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 4: Operadores Relacionais -->
+            <div id="slide-4" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Operadores Relacionais (Comparações)</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Usados para comparar valores. O resultado é sempre <code>True</code> ou <code>False</code>.</p>
+                    <code class="python-code">
+                        >>> a = 10<br>
+                        >>> b = 20<br><br>
+                        >>> a == 10&nbsp;&nbsp;&nbsp;&nbsp;# Igual? -> True<br>
+                        >>> a != b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Diferente? -> True<br>
+                        >>> b > a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Maior que? -> True<br>
+                        >>> a <= 10&nbsp;&nbsp;&nbsp;&nbsp;# Menor ou igual? -> True
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 5: Operadores Lógicos -->
+            <div id="slide-5" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Operadores Lógicos</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Combinam expressões lógicas.</p>
+                    <code class="python-code">
+                        # 'and': ambos precisam ser True<br>
+                        >>> (10 > 5) and (3 < 4)&nbsp;&nbsp;&nbsp;# True and True -> True<br><br>
+                        # 'or': pelo menos um precisa ser True<br>
+                        >>> (10 < 5) or (3 < 4)&nbsp;&nbsp;&nbsp;&nbsp;# False or True -> True<br><br>
+                        # 'not': inverte o valor<br>
+                        >>> not (10 > 5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# not True -> False
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 6: Operações com Strings -->
+            <div id="slide-6" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Operações com Strings</h2>
+                    <ul class="space-y-4 text-lg md:text-xl">
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Concatenação (+):</strong> Junta duas strings. <code>"Olá" + " " + "Mundo"</code> resulta em <code>"Olá Mundo"</code>.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Repetição (*):</strong> Repete uma string. <code>"eco" * 3</code> resulta em <code>"ecoecoeco"</code>.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>Fatiamento ([ ]):</strong> Pega um pedaço da string. <code>"Python"[0:2]</code> resulta em <code>"Py"</code>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 7: Entrada de Dados -->
+            <div id="slide-7" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Entrada de Dados: `input()`</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">A função <code>input()</code> pausa o programa e espera o usuário digitar algo.</p>
+                    <code class="python-code">
+                        # O texto digitado é guardado na variável 'nome'<br>
+                        nome = input("Qual é o seu nome? ")<br><br>
+                        print("Olá, " + nome + "!")
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 8: Convertendo a Entrada -->
+            <div id="slide-8" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Convertendo a Entrada de Dados</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200"><code>input()</code> sempre retorna texto (string). Para usar como número, precisamos converter.</p>
+                    <code class="python-code">
+                        # Converte a string para um número inteiro<br>
+                        idade_str = input("Digite sua idade: ")<br>
+                        idade_int = int(idade_str)<br><br>
+                        
+                        # Converte a string para um número decimal<br>
+                        altura_str = input("Digite sua altura: ")<br>
+                        altura_float = float(altura_str)
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 9: Conclusão -->
+            <div id="slide-9" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6">Resumo do Capítulo</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-200">Agora você sabe como usar diferentes tipos de variáveis, criar expressões lógicas e interagir com o usuário!</p>
+                    <p class="text-3xl md:text-4xl font-bold text-white">Continue praticando!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de Navegação -->
+        <div class="flex-shrink-0 p-4">
+            <div class="flex justify-between items-center w-full max-w-5xl mx-auto">
+                <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 9</span>
+                <div class="flex items-center gap-2 text-sm text-violet-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+                    <span>Deslize para navegar</span>
+                </div>
+                <div class="flex gap-2">
+                    <button id="prev-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Anterior</button>
+                    <button id="next-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors">Próximo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const slideCounter = document.getElementById('slide-counter');
+        const presentationContainer = document.getElementById('presentation-container');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('hidden', i !== index);
+            });
+            slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        presentationContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        presentationContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                prevSlide();
+            }
+        }
+
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
