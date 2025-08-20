@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação: Preparando o Ambiente Python</title>
+    <title>Apresentação Completa: Capítulo 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
         }
         #presentation-container {
             flex-grow: 1;
-            position: relative; /* Necessário para o posicionamento absoluto dos slides */
+            position: relative;
         }
         .slide {
             transition: opacity 0.5s ease-in-out;
@@ -34,6 +34,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
         .slide.hidden {
             opacity: 0;
@@ -43,10 +44,9 @@
             max-width: 1000px;
             width: 90%;
             margin: 0 auto;
-            padding: 1rem;
         }
         .gradient-bg {
-            background: linear-gradient(-45deg, #047857, #10b981, #059669, #34d399);
+            background: linear-gradient(-45deg, #1e40af, #1d4ed8, #2563eb, #3b82f6);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -56,13 +56,13 @@
             100% { background-position: 0% 50%; }
         }
         code.python-code {
-            background-color: #1e293b; /* slate-800 */
-            color: #f8fafc; /* slate-50 */
+            background-color: #1e293b;
+            color: #f8fafc;
             padding: 1rem;
             border-radius: 0.5rem;
             display: block;
             font-family: monospace;
-            font-size: 1.125rem; /* text-xl */
+            font-size: 1.125rem;
             white-space: pre-wrap;
             text-align: left;
         }
@@ -71,103 +71,142 @@
 <body class="gradient-bg text-white">
 
     <div class="presentation-body">
-        <!-- Container dos Slides -->
         <div id="presentation-container">
-            <!-- Slides aqui -->
+            <!-- Slide 1: Título -->
             <div id="slide-1" class="slide">
                 <div class="slide-content text-center">
-                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Preparando o Ambiente</h1>
-                    <p class="text-xl md:text-2xl text-emerald-200">Capítulo 2: Instalação e Primeiros Passos</p>
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Capítulo 2</h1>
+                    <p class="text-xl md:text-2xl text-blue-200">Preparando o Ambiente em Detalhes</p>
                 </div>
             </div>
+
+            <!-- Slide 2: O Interpretador -->
             <div id="slide-2" class="slide hidden">
                 <div class="slide-content text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">O que é o Interpretador Python?</h2>
-                    <p class="text-lg md:text-xl bg-white/10 p-6 rounded-lg backdrop-blur-sm text-gray-200">
-                        É o programa essencial que lê os seus comandos e os "traduz" para que o computador possa executá-los.
-                    </p>
-                </div>
-            </div>
-            <div id="slide-3" class="slide hidden">
-                <div class="slide-content">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Instalação do Python 3</h2>
-                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm text-lg md:text-xl">
-                        <p class="mb-4">Para começar, precisamos da versão 3 do Python.</p>
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>Acesse <a href="https://www.python.org" target="_blank" class="font-bold text-yellow-300 underline">python.org</a> e vá para Downloads.</li>
-                            <li>Baixe o instalador para o seu sistema (Windows, Mac, Linux).</li>
-                            <li>Siga os passos da instalação, mantendo as opções padrão.</li>
-                        </ol>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">O Interpretador Python</h2>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm text-lg md:text-xl text-left space-y-3">
+                       <p>É o "cérebro" que executa seus programas. Sem ele, um código Python é apenas um texto.</p>
+                       <ul class="list-disc list-inside">
+                           <li><strong>Traduz:</strong> Converte seus comandos para uma linguagem que o computador entende.</li>
+                           <li><strong>Executa:</strong> Realiza as ações, linha por linha.</li>
+                           <li><strong>Verifica:</strong> Aponta erros de sintaxe se você escrever algo errado.</li>
+                       </ul>
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 3: Instalação -->
+            <div id="slide-3" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8">Instalação: Visão Geral</h2>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm text-lg md:text-xl text-left space-y-3">
+                       <p>O primeiro passo é ter o Python 3 instalado.</p>
+                       <ul class="list-disc list-inside">
+                           <li><strong>Fonte Oficial:</strong> Baixe sempre de <a href="https://www.python.org" target="_blank" class="font-bold text-yellow-300 underline">python.org</a>.</li>
+                           <li><strong>Windows:</strong> Requer instalação manual.</li>
+                           <li><strong>Linux & Mac OS X:</strong> Geralmente já vêm com uma versão, mas pode ser necessário instalar a versão 3.</li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: IDLE -->
             <div id="slide-4" class="slide hidden">
                 <div class="slide-content text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Conhecendo o IDLE (Python Shell)</h2>
-                    <p class="text-lg md:text-xl mb-4 text-gray-200">O IDLE é um ambiente interativo para testar comandos e ver o resultado na hora.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">IDLE: Seu Ambiente Inicial</h2>
+                     <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">O IDLE é um ambiente simples que vem com o Python, perfeito para começar. Ele tem duas janelas principais.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 5: IDLE - Shell vs Editor -->
+            <div id="slide-5" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">IDLE: Shell vs. Editor</h2>
+                    <div class="grid md:grid-cols-2 gap-6 text-lg">
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-cyan-300 mb-2">Python Shell (Interativo)</h3>
+                            <p>É a janela com o sinal <code class="bg-gray-700 p-1 rounded">>>></code>. Ótima para testes rápidos. Você digita um comando, aperta Enter e vê o resultado na hora.</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-lime-300 mb-2">Editor de Arquivos</h3>
+                            <p>É uma janela em branco (<code class="bg-gray-700 p-1 rounded">File > New File</code>) onde você escreve programas completos para salvar e executar várias vezes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Python como Calculadora -->
+            <div id="slide-6" class="slide hidden">
+                 <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Usando o Shell como Calculadora</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Você pode fazer contas diretamente no Shell.</p>
                     <code class="python-code">
-                        >>> print("Olá, Mundo!")<br>
-                        Olá, Mundo!<br>
-                        >>>
+                        >>> 10 + 5  # Soma
+                        15
+                        >>> 20 - 8  # Subtração
+                        12
+                        >>> 7 * 3   # Multiplicação
+                        21
+                        >>> 50 / 4  # Divisão
+                        12.5
                     </code>
                 </div>
             </div>
-            <div id="slide-5" class="slide hidden">
-                <div class="slide-content">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Criando e Executando um Programa</h2>
-                    <ol class="list-decimal list-inside space-y-4 text-lg md:text-xl bg-white/10 p-6 rounded-lg">
-                        <li>No IDLE: <code class="bg-gray-700 px-2 py-1 rounded">File > New File</code>.</li>
-                        <li>Digite seu código.</li>
-                        <li>Salve o arquivo com a extensão <code class="bg-gray-700 px-2 py-1 rounded">.py</code>.</li>
-                        <li>Pressione <code class="bg-gray-700 px-2 py-1 rounded">F5</code> ou vá em <code class="bg-gray-700 px-2 py-1 rounded">Run > Run Module</code>.</li>
-                    </ol>
-                </div>
-            </div>
-            <div id="slide-6" class="slide hidden">
-                <div class="slide-content">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Cuidados ao Digitar</h2>
-                    <ul class="space-y-3 text-lg md:text-xl">
-                        <li class="bg-white/10 p-3 rounded-lg"><strong>Maiúsculas/Minúsculas:</strong> <code class="bg-gray-700 p-1 rounded">print</code> ≠ <code class="bg-gray-700 p-1 rounded">Print</code>.</li>
-                        <li class="bg-white/10 p-3 rounded-lg"><strong>Aspas:</strong> Sempre abra e feche aspas (<code class="bg-gray-700 p-1 rounded">" "</code> ou <code class="bg-gray-700 p-1 rounded">' '</code>).</li>
-                        <li class="bg-white/10 p-3 rounded-lg"><strong>Parênteses:</strong> Todo <code class="bg-gray-700 p-1 rounded">(</code> deve ter um <code class="bg-gray-700 p-1 rounded">)</code> correspondente.</li>
-                        <li class="bg-white/10 p-3 rounded-lg"><strong>Indentação:</strong> Espaços no início da linha são cruciais.</li>
-                    </ul>
-                </div>
-            </div>
+
+            <!-- Slide 7: Operações Avançadas -->
             <div id="slide-7" class="slide hidden">
-                <div class="slide-content">
-                     <h2 class="text-3xl md:text-5xl font-bold mb-6 text-center">Python como Calculadora</h2>
-                    <p class="text-lg md:text-xl mb-4 text-center text-gray-200">Faça contas direto no interpretador.</p>
+                 <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Mais Operações Matemáticas</h2>
                     <code class="python-code">
-                        >>> 2 + 3<br>
-                        5<br>
-                        >>> 10 * 5<br>
-                        50<br>
-                        >>> 2 ** 3  # Exponenciação<br>
-                        8<br>
-                        >>> 10 % 3  # Resto da divisão<br>
+                        # Exponenciação (2 elevado a 8)
+                        >>> 2 ** 8
+                        256
+
+                        # Resto da divisão (Módulo)
+                        >>> 10 % 3
                         1
                     </code>
                 </div>
             </div>
+
+            <!-- Slide 8: Variáveis -->
             <div id="slide-8" class="slide hidden">
-                <div class="slide-content">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-center">Variáveis e Atribuição</h2>
-                    <p class="text-lg md:text-xl mb-4 text-center text-gray-200">Variáveis guardam valores. Use <code class="bg-gray-700 p-1 rounded">=</code> para atribuir.</p>
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Variáveis: Guardando Valores</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Variáveis são "etiquetas" que você cria para armazenar dados. Use o sinal <code class="bg-gray-700 p-1 rounded">=</code> para atribuir um valor.</p>
                     <code class="python-code">
-                        salario = 1500<br>
-                        aumento = 5<br><br>
-                        novo_salario = salario + (salario * aumento / 100)<br><br>
-                        >>> print(novo_salario)<br>
+                        # A variável 'salario' agora guarda o valor 1500
+                        >>> salario = 1500
+
+                        # A variável 'aumento' guarda 5
+                        >>> aumento = 5
+
+                        # Podemos usar as variáveis em cálculos
+                        >>> print(salario + (salario * aumento / 100))
                         1575.0
                     </code>
                 </div>
             </div>
+
+            <!-- Slide 9: Comentários -->
             <div id="slide-9" class="slide hidden">
                 <div class="slide-content text-center">
-                    <h2 class="text-4xl md:text-6xl font-black mb-6">Pronto para Começar!</h2>
-                    <p class="text-xl md:text-2xl mb-8 text-gray-200">Com o ambiente configurado, o próximo passo é praticar.</p>
-                    <p class="text-3xl md:text-4xl font-bold text-white">Bons estudos!</p>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Comentários: Suas Anotações</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Tudo que vem depois do símbolo <code class="bg-gray-700 p-1 rounded">#</code> em uma linha é ignorado pelo Python. Use para explicar o que seu código faz.</p>
+                    <code class="python-code">
+                        # Este é um comentário. Ele não será executado.
+                        
+                        # Define o salário inicial do funcionário
+                        salario = 1500 # Atribui 1500 à variável salario
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 10: Fim -->
+            <div id="slide-10" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6">Fim da Revisão</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-200">Esta versão cobriu em detalhes a preparação do ambiente, o uso do IDLE, operações básicas e o conceito de variáveis.</p>
                 </div>
             </div>
         </div>
@@ -175,9 +214,9 @@
         <!-- Controles de Navegação -->
         <div class="flex-shrink-0 p-4">
             <div class="flex justify-between items-center w-full max-w-5xl mx-auto">
-                <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 9</span>
-                <div class="flex items-center gap-2 text-sm text-emerald-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+                <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 10</span>
+                <div class="flex items-center gap-2 text-sm text-blue-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
                     <span>Deslize para navegar</span>
                 </div>
                 <div class="flex gap-2">
@@ -194,68 +233,27 @@
         const nextBtn = document.getElementById('next-btn');
         const slideCounter = document.getElementById('slide-counter');
         const presentationContainer = document.getElementById('presentation-container');
-        
         let currentSlide = 0;
         const totalSlides = slides.length;
-
         function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('hidden', i !== index);
-            });
+            slides.forEach((slide, i) => slide.classList.toggle('hidden', i !== index));
             slideCounter.textContent = `${index + 1} / ${totalSlides}`;
             prevBtn.disabled = index === 0;
             nextBtn.disabled = index === totalSlides - 1;
         }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        }
-
-        // Event Listeners para os botões
+        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; showSlide(currentSlide); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; showSlide(currentSlide); } }
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
-
-        // Event Listeners para o teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            else if (e.key === 'ArrowLeft') prevSlide();
-        });
-
-        // Lógica para o Swipe
+        document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') nextSlide(); else if (e.key === 'ArrowLeft') prevSlide(); });
         let touchStartX = 0;
-        let touchEndX = 0;
-
-        presentationContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
+        presentationContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
         presentationContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
+            const touchEndX = e.changedTouches[0].screenX;
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) nextSlide();
+            else if (touchEndX - touchStartX > swipeThreshold) prevSlide();
         });
-
-        function handleSwipe() {
-            const swipeThreshold = 50; // Mínimo de pixels para considerar um swipe
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe para a esquerda
-                nextSlide();
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe para a direita
-                prevSlide();
-            }
-        }
-
-        // Inicializa a apresentação
         showSlide(currentSlide);
     </script>
 
