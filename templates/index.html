@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Interativo de Python</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-bg {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#dbeafe 1.5px, transparent 1.5px), radial-gradient(#dbeafe 1.5px, #f8fafc 1.5px);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px;
-        }
-        .card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-    </style>
-</head>
-<body class="gradient-bg text-slate-800">
+{% extends "base.html" %}
 
+{% block content %}
     <div class="container mx-auto px-4 py-8 md:py-16">
         
         <header class="text-center mb-12">
@@ -43,7 +15,7 @@
                 <span class="text-sm font-bold text-blue-500">Capítulo 1</span>
                 <h2 class="text-2xl font-bold mt-1 mb-4">Motivação</h2>
                 <div class="flex flex-col gap-3">
-                    <a href="apresentacao_capitulo_1.html" class="w-full text-center bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Ver Apresentação</a>
+                    <a href="{{ url_for('apresentacao_capitulo_1') }}" class="w-full text-center bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Ver Apresentação</a>
                 </div>
             </div>
 
@@ -52,8 +24,8 @@
                 <span class="text-sm font-bold text-emerald-500">Capítulo 2</span>
                 <h2 class="text-2xl font-bold mt-1 mb-4">Preparando o Ambiente</h2>
                 <div class="flex flex-col gap-3">
-                    <a href="apresentacao_capitulo_2.html" class="w-full text-center bg-emerald-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 transition-colors">Ver Apresentação</a>
-                    <a href="exercicios_capitulo_2.html" class="w-full text-center bg-cyan-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-cyan-600 transition-colors">Ver Exercícios</a>
+                    <a href="{{ url_for('apresentacao_capitulo_2') }}" class="w-full text-center bg-emerald-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 transition-colors">Ver Apresentação</a>
+                    <a href="{{ url_for('exercicios_capitulo_2') }}" class="w-full text-center bg-cyan-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-cyan-600 transition-colors">Ver Exercícios</a>
                 </div>
             </div>
 
@@ -62,8 +34,8 @@
                 <span class="text-sm font-bold text-violet-500">Capítulo 3</span>
                 <h2 class="text-2xl font-bold mt-1 mb-4">Variáveis e Entrada de Dados</h2>
                 <div class="flex flex-col gap-3">
-                    <a href="apresentacao_capitulo_3.html" class="w-full text-center bg-violet-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-violet-600 transition-colors">Ver Apresentação</a>
-                    <a href="exercicios_capitulo_3.html" class="w-full text-center bg-orange-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors">Ver Exercícios</a>
+                    <a href="{{ url_for('apresentacao_capitulo_3') }}" class="w-full text-center bg-violet-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-violet-600 transition-colors">Ver Apresentação</a>
+                    <a href="{{ url_for('exercicios_capitulo_3') }}" class="w-full text-center bg-orange-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors">Ver Exercícios</a>
                 </div>
             </div>
 
@@ -74,6 +46,4 @@
         </footer>
 
     </div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação: Exercícios do Capítulo 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+
+{% block title %}Apresentação: Exercícios do Capítulo 2{% endblock %}
+
+{% block content %}
     <style>
         html, body {
             height: 100%;
@@ -67,9 +62,7 @@
             text-align: left;
         }
     </style>
-</head>
-<body class="gradient-bg text-white">
-
+<div class="gradient-bg text-white">
     <div class="presentation-body">
         <!-- Container dos Slides -->
         <div id="presentation-container">
@@ -291,6 +284,5 @@
 
         showSlide(currentSlide);
     </script>
-
-</body>
-</html>
+</div>
+{% endblock %}

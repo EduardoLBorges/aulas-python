@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação Completa: Capítulo 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+
+{% block title %}Apresentação: Capítulo 2{% endblock %}
+
+{% block content %}
     <style>
         html, body {
             height: 100%;
@@ -67,9 +62,7 @@
             text-align: left;
         }
     </style>
-</head>
-<body class="gradient-bg text-white">
-
+<div class="gradient-bg text-white">
     <div class="presentation-body">
         <div id="presentation-container">
             <!-- Slide 1: Título -->
@@ -173,7 +166,7 @@
             <div id="slide-8" class="slide hidden">
                 <div class="slide-content text-center">
                     <h2 class="text-3xl md:text-5xl font-bold mb-6">Variáveis: Guardando Valores</h2>
-                    <p class="text-lg md:text-xl mb-4 text-gray-200">Variáveis são "etiquetas" que você cria para armazenar dados. Use o sinal <code class="bg-gray-700 p-1 rounded">=</code> para atribuir um valor.</p>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Variáveis são "etiquetas" que você cria para armazenar dados. Use o sinal <code class="bg-gray-700 p-1 rounded"> = </code> para atribuir um valor.</p>
                     <code class="python-code">
                         # A variável 'salario' agora guarda o valor 1500
                         >>> salario = 1500
@@ -256,6 +249,5 @@
         });
         showSlide(currentSlide);
     </script>
-
-</body>
-</html>
+</div>
+{% endblock %}

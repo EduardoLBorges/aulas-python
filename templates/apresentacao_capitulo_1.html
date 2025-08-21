@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação: Introdução à Programação com Python</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+
+{% block title %}Apresentação: Capítulo 1 {% endblock %}
+
+{% block head_extra %}
     <style>
-        body {
+        html, body, #content-container, .presentation-body, .gradient-bg {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
             font-family: 'Inter', sans-serif;
-            overflow: hidden; /* Evita barras de rolagem */
+        }
+        .presentation-body {
+            display: flex;
+            flex-direction: column;
+        }
+        #presentation-container {
+            flex-grow: 1;
+            position: relative;
         }
         .slide {
             transition: opacity 0.5s ease-in-out;
@@ -20,6 +25,10 @@
             height: 100%;
             top: 0;
             left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
         .slide.hidden {
             opacity: 0;
@@ -27,10 +36,9 @@
         }
         .slide-content {
             max-width: 1000px;
+            width: 90%;
             margin: 0 auto;
-            padding: 2rem;
         }
-        /* Efeito de fundo gradiente animado */
         .gradient-bg {
             background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #1d4ed8, #2563eb);
             background-size: 400% 400%;
@@ -41,180 +49,180 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        /* Estilo para o bloco de código */
         code.python-code {
-            background-color: #1e293b; /* slate-800 */
-            color: #f8fafc; /* slate-50 */
+            background-color: #1e293b;
+            color: #f8fafc;
             padding: 1rem;
             border-radius: 0.5rem;
             display: block;
             font-family: monospace;
-            font-size: 1.125rem; /* text-xl */
+            font-size: 1.125rem;
             white-space: pre-wrap;
+            text-align: left;
         }
     </style>
-</head>
-<body class="gradient-bg text-white w-screen h-screen flex flex-col items-center justify-center p-4 relative">
+{% endblock %}
 
-    <!-- Container dos Slides -->
-    <div id="presentation-container" class="w-full h-full">
-
-        <!-- Slide 1: Título -->
-        <div id="slide-1" class="slide flex items-center justify-center">
-            <div class="slide-content text-center">
-                <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Introdução à Programação com Python</h1>
-                <p class="text-xl md:text-2xl text-blue-200">Capítulo 1: Motivação</p>
+{% block content %}
+<div class="gradient-bg text-white h-full w-full">
+    <div class="presentation-body">
+        <div id="presentation-container">
+            <!-- Slide 1: Título -->
+            <div id="slide-1" class="slide">
+                <div class="slide-content text-center">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Capítulo 1</h1>
+                    <p class="text-xl md:text-2xl text-blue-200">Motivação para Programar</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Slide 2: 4 Perguntas -->
-        <div id="slide-2" class="slide hidden flex items-center justify-center">
-            <div class="slide-content">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Antes de Começar: 4 Perguntas Essenciais</h2>
-                <ul class="space-y-6 text-lg md:text-xl">
-                    <li class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                        <strong class="text-blue-300">1. Você realmente quer aprender a programar?</strong>
-                        <p class="mt-1 text-gray-200">A motivação deve ser interna. É uma arte que exige dedicação.</p>
-                    </li>
-                    <li class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                        <strong class="text-blue-300">2. Como está seu nível de paciência?</strong>
-                        <p class="mt-1 text-gray-200">É fundamental ter paciência e atenção aos detalhes. Comece com o simples.</p>
-                    </li>
-                    <li class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                        <strong class="text-blue-300">3. Quanto tempo você pretende estudar?</strong>
-                        <p class="mt-1 text-gray-200">Encontre seu próprio ritmo. Sugestão: 1 a 2 horas por dia.</p>
-                    </li>
-                    <li class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                        <strong class="text-blue-300">4. Qual o seu objetivo ao programar?</strong>
-                        <p class="mt-1 text-gray-200">Ter um objetivo claro ajuda a manter o foco e a motivação.</p>
-                    </li>
-                </ul>
+            <!-- Slide 2: As 4 Perguntas -->
+            <div id="slide-2" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Antes de Começar: 4 Perguntas</h2>
+                    <ul class="space-y-4 text-lg md:text-xl">
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>1. Você quer aprender a programar?</strong> A vontade deve ser sua.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>2. Como está seu nível de paciência?</strong> Erros são comuns e exigem calma.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>3. Quanto tempo pretende estudar?</strong> Consistência é mais importante que intensidade.</li>
+                        <li class="bg-white/10 p-4 rounded-lg"><strong>4. Qual o seu objetivo?</strong> Ter um propósito ajuda a manter o foco.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!-- Slide 3: Programar para quê? -->
-        <div id="slide-3" class="slide hidden flex items-center justify-center">
-            <div class="slide-content">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Programar para Quê?</h2>
-                <div class="grid md:grid-cols-2 gap-6 text-lg">
-                    <div class="bg-white/10 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold text-blue-300 mb-2">Tarefas Práticas</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-200">
-                            <li>Escrever páginas web dinâmicas.</li>
-                            <li>Entender e seguir instruções complexas.</li>
-                            <li>Compreender melhor o computador.</li>
-                        </ul>
+            <!-- Slide 3: Programar é uma Arte -->
+            <div id="slide-3" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Programar é uma Arte</h2>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm text-lg md:text-xl text-left space-y-3">
+                       <p>Aprender a programar é como aprender a andar de bicicleta: você só aprende fazendo.</p>
+                       <ul class="list-disc list-inside">
+                           <li>A motivação interna é o motor principal para superar as dificuldades.</li>
+                           <li>Saber programar não é decorar comandos, mas sim saber expressar soluções para problemas.</li>
+                       </ul>
                     </div>
-                    <div class="bg-white/10 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold text-blue-300 mb-2">Resolver Problemas e Criar</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-200">
-                            <li>Otimizar processos e organizar informações.</li>
-                            <li>Contribuir para projetos de Software Livre.</li>
-                            <li>Criar sistemas que podem ajudar pessoas.</li>
-                        </ul>
+                </div>
+            </div>
+
+            <!-- Slide 4: A Virtude da Paciência -->
+            <div id="slide-4" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">A Virtude da Paciência</h2>
+                    <p class="text-lg md:text-xl mb-4 bg-white/10 p-4 rounded-lg">Não queira construir um editor de textos no primeiro dia. Seu primeiro programa será algo muito mais simples, como...</p>
+                    <code class="python-code">
+                        # Somar dois números!
+                        print(2 + 2)
+                    </code>
+                    <p class="text-lg md:text-xl mt-4 text-gray-200">A complexidade aumentará com o tempo. Uma vírgula esquecida pode quebrar tudo. Respire fundo e leia o erro.</p>
+                </div>
+            </div>
+
+            <!-- Slide 5: Programar para Quê? -->
+            <div id="slide-5" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Programar para Quê?</h2>
+                    <p class="text-lg md:text-xl text-center mb-4">Você já "programa" no dia a dia sem perceber:</p>
+                    <div class="grid md:grid-cols-2 gap-6 text-lg">
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-cyan-300 mb-2">Seguir Instruções</h3>
+                            <p>Acertar um relógio, seguir uma receita de bolo ou montar um móvel são sequências de passos, ou seja, um "programa".</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-lime-300 mb-2">Criar Caminhos</h3>
+                            <p>Traçar uma rota em um mapa é criar um algoritmo: "vire à esquerda, siga por 3 quadras...". Se o caminho estiver errado, você "depura" sua rota.</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Por que Python? -->
+            <div id="slide-6" class="slide hidden">
+                <div class="slide-content">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Por que Escolher Python?</h2>
+                    <ul class="space-y-3 text-lg md:text-xl">
+                        <li class="bg-white/10 p-3 rounded-lg"><strong>Simples e Claro:</strong> Ótima como primeira linguagem, com sintaxe limpa e legível.</li>
+                        <li class="bg-white/10 p-3 rounded-lg"><strong>Poderoso e Versátil:</strong> Usado para web, IA, ciência de dados, jogos e mais.</li>
+                        <li class="bg-white/10 p-3 rounded-lg"><strong>Software Livre:</strong> Gratuito para usar, modificar e distribuir.</li>
+                        <li class="bg-white/10 p-3 rounded-lg"><strong>"Baterias Inclusas":</strong> Vem com uma vasta biblioteca de ferramentas prontas.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 7: O "Olá, Mundo!" -->
+            <div id="slide-7" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Seu Primeiro Programa: "Olá, Mundo!"</h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-200">Em Python, exibir uma mensagem é muito direto:</p>
+                    <code class="python-code">
+                        print("Olá!")
+                    </code>
+                </div>
+            </div>
+
+            <!-- Slide 8: Anatomia do `print` -->
+            <div id="slide-8" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Anatomia do `print("Olá!")`</h2>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm text-lg md:text-xl text-left space-y-3">
+                       <p><code class="bg-gray-700 p-1 rounded">print</code>: É o nome da <strong>função</strong>, um comando que realiza uma ação (neste caso, exibir na tela).</p>
+                       <p><code class="bg-gray-700 p-1 rounded">( )</code>: Os <strong>parênteses</strong> são usados para passar informações para a função.</p>
+                       <p><code class="bg-gray-700 p-1 rounded">"Olá!"</code>: É o <strong>argumento</strong> (ou parâmetro) que passamos para a função. As aspas duplas indicam que se trata de um texto (string).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Fim -->
+            <div id="slide-9" class="slide hidden">
+                <div class="slide-content text-center">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6">Bem-vindo(a)!</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-200">A jornada da programação exige dedicação, mas é extremamente recompensadora. Python é um excelente ponto de partida.</p>
+                    <p class="text-3xl md:text-4xl font-bold text-white">Vamos começar!</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 4: Por que Python? -->
-        <div id="slide-4" class="slide hidden flex items-center justify-center">
-            <div class="slide-content">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Por que escolher Python?</h2>
-                <ul class="space-y-4 text-lg md:text-xl">
-                    <li class="bg-white/10 p-4 rounded-lg">✔️ <strong class="text-yellow-300">Simplicidade e Clareza:</strong> Excelente para iniciantes, com sintaxe limpa.</li>
-                    <li class="bg-white/10 p-4 rounded-lg">✔️ <strong class="text-yellow-300">Poderosa e Versátil:</strong> Usada em IA, web, jogos, ciência de dados e mais.</li>
-                    <li class="bg-white/10 p-4 rounded-lg">✔️ <strong class="text-yellow-300">Software Livre e Multiplataforma:</strong> Gratuita e funciona em todos os sistemas.</li>
-                    <li class="bg-white/10 p-4 rounded-lg">✔️ <strong class="text-yellow-300">"Baterias Inclusas":</strong> Vasta coleção de bibliotecas prontas para usar.</li>
-                </ul>
+        <!-- Controles de Navegação -->
+        <div class="flex-shrink-0 p-4">
+            <div class="flex justify-between items-center w-full max-w-5xl mx-auto">
+                <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 9</span>
+                <div class="flex items-center gap-2 text-sm text-blue-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+                    <span>Deslize para navegar</span>
+                </div>
+                <div class="flex gap-2">
+                    <button id="prev-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Anterior</button>
+                    <button id="next-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors">Próximo</button>
+                </div>
             </div>
-        </div>
-
-        <!-- Slide 5: Primeiro Programa -->
-        <div id="slide-5" class="slide hidden flex items-center justify-center">
-            <div class="slide-content text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8">Seu Primeiro Programa</h2>
-                <p class="text-lg md:text-xl mb-6 text-gray-200">O clássico "Olá, Mundo!" em Python é extremamente simples:</p>
-                <code class="python-code">print("Olá!")</code>
-                <p class="text-lg md:text-xl mt-6 text-gray-200">A função <code class="bg-gray-700 px-2 py-1 rounded">print()</code> exibe na tela o texto que está entre aspas.</p>
-            </div>
-        </div>
-
-        <!-- Slide 6: Conclusão -->
-        <div id="slide-6" class="slide hidden flex items-center justify-center">
-            <div class="slide-content text-center">
-                <h2 class="text-4xl md:text-6xl font-black mb-6">Conclusão</h2>
-                <p class="text-xl md:text-2xl mb-4 text-gray-200">Aprender a programar é uma jornada que exige <strong class="text-yellow-300">prática e paciência</strong>.</p>
-                <p class="text-xl md:text-2xl mb-8 text-gray-200">Python é uma ferramenta poderosa e amigável para iniciar essa jornada.</p>
-                <p class="text-3xl md:text-4xl font-bold text-white">Bem-vindo ao mundo da programação!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Controles de Navegação -->
-    <div class="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center w-full max-w-5xl mx-auto">
-        <span id="slide-counter" class="text-sm bg-black/20 px-3 py-1 rounded-full">1 / 6</span>
-        <div class="flex gap-2">
-            <button id="prev-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Anterior</button>
-            <button id="next-btn" class="bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-4 rounded-lg transition-colors">Próximo</button>
         </div>
     </div>
 
     <script>
-        // Lógica para controlar a apresentação
         const slides = document.querySelectorAll('.slide');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const slideCounter = document.getElementById('slide-counter');
-        
+        const presentationContainer = document.getElementById('presentation-container');
         let currentSlide = 0;
         const totalSlides = slides.length;
-
         function showSlide(index) {
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove('hidden');
-                } else {
-                    slide.classList.add('hidden');
-                }
-            });
-            // Atualiza o contador
+            slides.forEach((slide, i) => slide.classList.toggle('hidden', i !== index));
             slideCounter.textContent = `${index + 1} / ${totalSlides}`;
-            // Habilita/desabilita botões
             prevBtn.disabled = index === 0;
             nextBtn.disabled = index === totalSlides - 1;
         }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        }
-
-        // Event Listeners para os botões
+        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; showSlide(currentSlide); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; showSlide(currentSlide); } }
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
-
-        // Event Listeners para o teclado (setas)
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
+        document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') nextSlide(); else if (e.key === 'ArrowLeft') prevSlide(); });
+        let touchStartX = 0;
+        presentationContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        presentationContainer.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) nextSlide();
+            else if (touchEndX - touchStartX > swipeThreshold) prevSlide();
         });
-
-        // Inicializa a apresentação
         showSlide(currentSlide);
     </script>
-
-</body>
-</html>
+</div>
+{% endblock %}
